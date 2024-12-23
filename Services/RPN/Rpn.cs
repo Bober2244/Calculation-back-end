@@ -1,12 +1,14 @@
+using Domain.Entities;
+
 namespace Services.RPN;
 
-public class RPN
+public class Rpn
 {
-    static public double Calculate(string input)
+    static public (double, ErrorEntity?) Calculate(string input)
     {
         string output = GetExpression(input);
         double result = Counting(output);
-        return result;
+        return (result, null);
     }
 
     static private string GetExpression(string input)
@@ -86,9 +88,9 @@ public class RPN
             }
             else if (IsOperator(input[i])) 
             {
-                double a = temp.Pop(); 
-                double b = temp.Pop();
-
+                double a = temp.Pop();
+                double b = input[i] == 'r' ? 2 : temp.Pop();
+                
                 switch (input[i])
                 { 
                     case '+': result = b + a; break;
@@ -96,7 +98,8 @@ public class RPN
                     case '*': result = b * a; break;
                     case '/': result = b / a; break;
                     case '^': result = double.Parse(Math.Pow(double.Parse(b.ToString()), double.Parse(a.ToString())).ToString()); break;
-                    case 'r': result = double.Parse(Math.Pow(double.Parse(b.ToString()), double.Parse((1.0 / a).ToString())).ToString()); break;
+                    //TODO: сделать квадратный корень
+                    case 'r': result = double.Parse(Math.Pow(double.Parse(a.ToString()), double.Parse((1.0 / b).ToString())).ToString()); break;
                 }
                 temp.Push(result); 
             }

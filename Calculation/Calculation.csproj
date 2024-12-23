@@ -12,10 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Dtos\CalculateDto\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 

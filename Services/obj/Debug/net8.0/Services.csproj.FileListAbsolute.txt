@@ -13,3 +13,4 @@
 /Users/bi_ba/RiderProjects/Calculation/Services/obj/Debug/net8.0/refint/Services.dll
 /Users/bi_ba/RiderProjects/Calculation/Services/obj/Debug/net8.0/Services.pdb
 /Users/bi_ba/RiderProjects/Calculation/Services/obj/Debug/net8.0/ref/Services.dll
+/Users/bi_ba/RiderProjects/Calculation/Services/obj/Debug/net8.0/Services.sourcelink.json

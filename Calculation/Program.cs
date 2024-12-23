@@ -13,7 +13,7 @@ builder.Services.AddScoped<ICalculationService, CalculationService>();
 var app = builder.Build();
 
 app.UseCors(options => options
-    .WithOrigins(new[] { "http://localhost:5169", "http://localhost:5010" })
+    .WithOrigins("http://localhost:5173")
     .AllowAnyHeader()
     .AllowAnyMethod()
 );

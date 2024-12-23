@@ -35,3 +35,4 @@
 /Users/bi_ba/RiderProjects/Calculation/Calculation/obj/Debug/net8.0/Calculation.pdb
 /Users/bi_ba/RiderProjects/Calculation/Calculation/obj/Debug/net8.0/Calculation.genruntimeconfig.cache
 /Users/bi_ba/RiderProjects/Calculation/Calculation/obj/Debug/net8.0/ref/Calculation.dll
+/Users/bi_ba/RiderProjects/Calculation/Calculation/obj/Debug/net8.0/Calculation.sourcelink.json
