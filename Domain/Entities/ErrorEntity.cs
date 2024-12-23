@@ -1,6 +1,6 @@
 namespace Domain.Entities;
 
-public class ErrorEntity
+public class ErrorEntity : ResultEntity
 {
     public string Message { get; set; } = string.Empty;
     

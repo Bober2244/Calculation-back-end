@@ -5,29 +5,29 @@ namespace Services.Implementations;
 
 public class CalculationService : ICalculationService
 {
-    public async Task<CalculationEntity> Calculate(CalculationEntity calculator)
+    public async Task<ResultEntity> Calculate(ResultEntity calculator)
     {
+        var calc = calculator as CalculationEntity;
+        var err = calculator as ErrorEntity;
         try
         {
-            var (result, error) = RPN.Rpn.Calculate(calculator.Expression);
+            var (result, error) = RPN.Rpn.Calculate(calc.Expression);
 
             if (error != null)
             {
-                calculator.Error = error;
-                return calculator;
+                return error;
             }
 
-            if (double.IsInfinity(result) || double.IsNaN(result))
-            {
-                calculator.Error = new ErrorEntity("Результат слишком большой", 400);
-                return calculator;
+            if (double.IsInfinity(result.Value) || double.IsNaN(result.Value))
+            { 
+                return new ErrorEntity("Результат слишком большой", 400);
             }
 
-            calculator.Result = result;
+            calc.Result = result.Value;
         }
         catch (Exception ex)
         {
-            calculator.Error = new ErrorEntity($"Произошла ошибка при вычислении: {ex.Message}", 500);
+            return new ErrorEntity($"Произошла ошибка при вычислении: {ex.Message}", 500);
         }
 
         return await Task.FromResult(calculator);
