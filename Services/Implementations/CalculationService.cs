@@ -8,7 +8,6 @@ public class CalculationService : ICalculationService
     public async Task<ResultEntity> Calculate(ResultEntity calculator)
     {
         var calc = calculator as CalculationEntity;
-        var err = calculator as ErrorEntity;
         try
         {
             var (result, error) = RPN.Rpn.Calculate(calc.Expression);
